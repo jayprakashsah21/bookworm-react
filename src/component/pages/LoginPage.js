@@ -3,12 +3,12 @@ import {Link} from 'react-router-dom'
 import LoginForm from './LoginForm'
 import {login} from '../../actions/auth'
 import {connect} from 'react-redux'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 class LoginPage extends React.Component{
 
     submit=data=>
-       this.props.login(data).then(()=>this.props.history.push("/"));   
+       this.props.login(data).then(()=>this.props.history.push("/dashboard"));   
     
     render(){
         
@@ -16,16 +16,17 @@ class LoginPage extends React.Component{
         <div>
             <h1>Login</h1>
             <LoginForm submit={this.submit}/>
+            <Link to="/forgot_password">Forgot Password</Link>
         </div>
         )}
 
 }
 
 LoginPage.propTypes = {
-    history: propTypes.shape({
-        push:propTypes.func.isRequired
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
     }).isRequired,
-    login:propTypes.func.isRequired
-};
+    login: PropTypes.func.isRequired
+  };
 
 export default connect(null,{login})(LoginPage)
