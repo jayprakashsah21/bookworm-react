@@ -42,6 +42,7 @@ class ConfirmationPage extends React.Component {
                 <Link to="/dashboard">Go to your dashboard</Link>
               </Message.Content>
             </Message>
+            
           )}
   
           {!loading &&
