@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage'
 import AddBookCta from '../cta/AddBookCta'
+import AddedBooksCta from '../cta/AddedBookCta'
 import { allBooksSelector } from "../../reducers/books";
 import {fetchBooks} from '../../actions/books'
 
@@ -17,8 +18,7 @@ onInit =(props) =>props.fetchBooks();
     return(
     <div>
         {!isConfirmed && <ConfirmEmailMessage/>}'
-        {console.log('length:'+books.length)}
-        {books.length === 0 ? <AddBookCta /> : <p>You have books!</p>}
+        {books.length === 0 ? <AddBookCta /> : <AddedBooksCta books={books}/>}
     </div>    
     )
 
